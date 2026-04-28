@@ -1,1 +1,107 @@
-TEST
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>結婚式謎解きクエスト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="app-shell">
+      <section class="hero card" id="welcomeScreen">
+        <div class="eyebrow">Wedding Mystery Quest</div>
+        <h1>二人の愛の軌跡と、未来への航海</h1>
+        <p class="lead">
+          会場内のヒントを見つけながら、Q1からQ10まで進むリアルタイム謎解きアプリです。
+          名前を入れて、続きから遊べます。
+        </p>
+
+        <div class="input-row">
+          <label for="userNameInput">ニックネーム</label>
+          <input id="userNameInput" type="text" placeholder="タロウ（友人）" maxlength="24" />
+        </div>
+
+        <div class="button-row">
+          <button id="startButton" class="primary">スタート</button>
+          <button id="adminButton" class="secondary">管理画面</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="gameScreen">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Current Player</div>
+            <h2 id="playerName">--</h2>
+          </div>
+          <button id="resetButton" class="ghost">最初から</button>
+        </div>
+
+        <div class="status-panel">
+          <div>
+            <span>進捗</span>
+            <strong id="progressText">Q1</strong>
+          </div>
+          <div>
+            <span>経過時間</span>
+            <strong id="elapsedText">00:00:00</strong>
+          </div>
+        </div>
+
+        <article class="question-panel">
+          <div class="question-head">
+            <div>
+              <span class="eyebrow">Question</span>
+              <h3 id="questionTitle">--</h3>
+            </div>
+          </div>
+
+          <p id="hintText" class="hint-text"></p>
+
+          <div id="choiceArea" class="choice-area"></div>
+
+          <button id="nextButton" class="next-button full-width">次へ</button>
+        </article>
+      </section>
+
+      <section class="card hidden" id="resultScreen">
+        <div class="eyebrow">Completed</div>
+        <h2>Thank you</h2>
+        <div class="result-grid">
+          <div class="result-box">
+            <span>正解数</span>
+            <strong><span id="resultNickname">--</span> <span id="finalScore">0</span></strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="adminScreen">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Admin</div>
+            <h2>管理画面</h2>
+          </div>
+          <button id="closeAdminButton" class="ghost">閉じる</button>
+        </div>
+
+        <div class="admin-grid">
+          <div>
+            <h3>リアルタイムリーダーボード</h3>
+            <div id="adminLeaderboard" class="leaderboard-list"></div>
+          </div>
+          <div>
+            <h3>進捗ヒートマップ</h3>
+            <div id="heatmap" class="heatmap"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
